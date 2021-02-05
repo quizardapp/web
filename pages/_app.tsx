@@ -1,9 +1,14 @@
+import "../styles/globals.css";
+import { Provider } from "react-redux";
+import type { AppProps } from "next/app";
+import store from "../store";
 
-import '../styles/globals.css'
-import type { AppProps /*, AppContext */ } from 'next/app'
-
-function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+export default function App({ Component, pageProps }: AppProps) {
+  return (
+    <Provider store={store}>
+      <Component {...pageProps} />
+    </Provider>
+  );
 }
 
 // Only uncomment this method if you have blocking data requirements for
@@ -17,5 +22,3 @@ function App({ Component, pageProps }: AppProps) {
 
 //   return { ...appProps }
 // }
-
-export default App
